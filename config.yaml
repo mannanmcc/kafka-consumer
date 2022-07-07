@@ -1,0 +1,5 @@
+kafka:
+  host: localhost
+  max_bytes: 1024
+  topic: another-topic
+  port: 9092

@@ -4,14 +4,15 @@ import (
 	"context"
 	"fmt"
 
+	conf "github.com/mannanmcc/kafka-consumer/internal/config"
 	"github.com/segmentio/kafka-go"
 )
 
-func StartConsumer() {
+func StartConsumer(conf *conf.Kafka) {
 	config := kafka.ReaderConfig{
-		Brokers:  []string{"localhost: 9092"},
-		Topic:    "first_topic",
-		MaxBytes: 10,
+		Brokers:  []string{conf.Host + ":" + conf.Port},
+		Topic:    conf.Topic,
+		MaxBytes: conf.MaxBytes,
 	}
 
 	reader := kafka.NewReader(config)
